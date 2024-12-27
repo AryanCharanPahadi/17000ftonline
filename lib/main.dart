@@ -80,7 +80,7 @@ class _MyAppState extends State<MyApp> {
                 image: AssetImage('assets/logo.png'),
               ),
             )),
-        nextScreen: Signin2Page(),
+        nextScreen: const Signin2Page(),
         backgroundColor: Colors.white,
         duration: 180,
       ),
@@ -97,6 +97,6 @@ class _MyAppState extends State<MyApp> {
     }
 
     // Navigate to the appropriate screen based on login status
-    Get.offAll(isLogged ? () => const HomeScreen() : () => Signin2Page());
+    Get.offAll(isLogged ? () => const HomeScreen() : () => const Signin2Page());
   }
 }
