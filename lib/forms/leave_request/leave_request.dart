@@ -314,17 +314,26 @@ class _LeaveFormState extends State<LeaveForm> {
                           selectedValue: leaveControllerForm.selectedLeaveType,
                           items: [
                             DropdownMenuItem(
-                                value: 'Select Type',
-                                child: Text('Select Type')),
+                              value: 'Select Type',
+                              child: Text('Select Type'),
+                            ),
                             DropdownMenuItem(
-                                value: 'SL', child: Text('SL - Sick Leave')),
+                              value: 'SL',
+                              child: Text('SL - Sick Leave'),
+                            ),
                             DropdownMenuItem(
-                                value: 'CL', child: Text('CL - Casual Leave')),
+                              value: 'CL',
+                              child: Text('CL - Casual Leave'),
+                            ),
+                            if (leaveControllerForm.selectedHalfDay != 'yes')
+                              DropdownMenuItem(
+                                value: 'EL',
+                                child: Text('EL - Earned Leave'),
+                              ),
                             DropdownMenuItem(
-                                value: 'EL', child: Text('EL - Earned Leave')),
-                            DropdownMenuItem(
-                                value: 'CO',
-                                child: Text('CO - Compensatory Leave')),
+                              value: 'CO',
+                              child: Text('CO - Compensatory Leave'),
+                            ),
                           ],
                           onChanged: (value) {
                             setState(() {
@@ -337,7 +346,8 @@ class _LeaveFormState extends State<LeaveForm> {
                             }
                             return null;
                           },
-                        ),
+                        )
+
                       ]),
                   CustomSizedBox(side: 'height', value: 20),
                   if (leaveControllerForm.selectedLeaveType == 'CO') ...[
