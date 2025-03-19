@@ -326,7 +326,8 @@ class _Signin2PageState extends State<Signin2Page> {
                                                           isLoading.value =
                                                               true;
 
-                                                          var rsp = await loginUser(
+                                                          var rsp =
+                                                              await loginUser(
                                                                   _userController
                                                                       .text,
                                                                   _passController
@@ -334,7 +335,8 @@ class _Signin2PageState extends State<Signin2Page> {
                                                           if (rsp['status']
                                                                   .toString() ==
                                                               '1') {
-                                                                print('1 bye status');
+                                                            print(
+                                                                '1 bye status');
                                                             var uid =
                                                                 rsp['emp_id'];
 
@@ -344,9 +346,9 @@ class _Signin2PageState extends State<Signin2Page> {
                                                             GetStorage().write(
                                                                 'username',
                                                                 rsp['username']);
-                                                                GetStorage().write(
-                                                                    'office',
-                                                                    rsp['office']);
+                                                            GetStorage().write(
+                                                                'office',
+                                                                rsp['office']);
                                                             GetStorage().write(
                                                                 'userId',
                                                                 rsp['emp_id']);
@@ -430,7 +432,8 @@ class _Signin2PageState extends State<Signin2Page> {
                                                                       'status']
                                                                   .toString() ==
                                                               '0') {
-                                                                 print('0 bye status');
+                                                            print(
+                                                                '0 bye status');
                                                             isLoading.value =
                                                                 false;
 
@@ -460,9 +463,8 @@ class _Signin2PageState extends State<Signin2Page> {
                                                                   );
                                                                 });
                                                           } else {
-                                                             print('error');
-                                                            isLoading
-                                                            .value =
+                                                            print('error');
+                                                            isLoading.value =
                                                                 false;
 
                                                             showDialog(

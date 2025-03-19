@@ -1197,6 +1197,7 @@ class StaffController extends GetxController {
       GetStorage().read('office').toString(),
     );
     fetchAllStaff();
+    print( "Fetching staff list : $fetchAllStaff");
 
     super.onInit();
   }

@@ -276,18 +276,31 @@ class ApiCalls {
   }
 
   static Future<List<AllStaff>> fetchAllStaff() async {
-    print('stafff get response');
-    var response = await client.get(Uri.parse('${MyColors.baseUrl}allStaff.php'),
-        headers: {"Accept": "application/json"});
-     //print(jsonString);
-    if (response.statusCode == 200) {
-      var jsonString = response.body;
+    print('Fetching staff data...');
 
-      return allStaffFromJson(jsonString);
-    } else {
-      throw Exception('Failed to load post');
+    try {
+      var response = await client.get(
+          Uri.parse('${MyColors.baseUrl}allStaff.php'),
+          headers: {"Accept": "application/json"}
+      );
+
+      print("Response status code: ${response.statusCode}");
+
+      if (response.statusCode == 200) {
+        var jsonString = response.body;
+        print("Staff list response body: $jsonString");
+
+        return allStaffFromJson(jsonString);
+      } else {
+        print('Failed to load staff. Status Code: ${response.statusCode}');
+        throw Exception('Failed to load staff');
+      }
+    } catch (e) {
+      print('Error fetching staff: $e');
+      rethrow;
     }
   }
+
 
 
 

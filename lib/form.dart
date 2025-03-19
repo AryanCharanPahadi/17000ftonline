@@ -66,7 +66,7 @@ class Form1State extends State<Form1> {
     _officeName = DateFormat('dd-MM-yyyy').format(DateTime.now());
     _imageList = [];
     images64 = [];
-    
+
   }
 
   // String? _selectedState;
@@ -181,7 +181,7 @@ class Form1State extends State<Form1> {
   final FocusNode _towardsNode = FocusNode();
 
   Widget bottomSheet(BuildContext context) {
-   
+
     return Container(
       color: MyColors.primary,
       height: 100,
@@ -251,7 +251,7 @@ class Form1State extends State<Form1> {
 
   @override
   Widget build(BuildContext context) {
-   
+
 
     return GetBuilder<GetXNetworkManager>(
         init: GetXNetworkManager(),
@@ -365,8 +365,8 @@ class Form1State extends State<Form1> {
                                                     setState(() {
                                                       schoolController.getItemName(
                                                           data ?? 'NA');
-                                                     print('this is length of get item naem ${schoolController.getItemNameList!.length}}'); 
-                                                     print(schoolController.getItemNameList!);    
+                                                     print('this is length of get item naem ${schoolController.getItemNameList!.length}}');
+                                                     print(schoolController.getItemNameList!);
                                                       tourValue = data;
                                                       _budgetHead = null;
                                                     });
@@ -415,7 +415,7 @@ class Form1State extends State<Form1> {
                                   },
                                   selectedItem:
                                       vendorName,
-                                      
+
                                 ),
                                 //  Container(
                                 //   height: 45,
@@ -436,7 +436,7 @@ class Form1State extends State<Form1> {
                                 //               null
                                 //           ? schoolController.vendorNameList!
                                 //               .map((value) {
-                      
+
                                 //               return DropdownMenuItem<String>(
                                 //                 value: value.vendorName.toString(),
                                 //                 child: Text(value.vendorName.toString()),
@@ -444,7 +444,7 @@ class Form1State extends State<Form1> {
                                 //             }).toList()
                                 //           : [], // Empty list if schoolController.getItemNameList is null
                                 //       onChanged: (String? v) {
-                                     
+
                                 //         FocusScope.of(context)
                                 //             .requestFocus(FocusNode());
                                 //         setState(() => vendorName = v);
@@ -575,7 +575,7 @@ class Form1State extends State<Form1> {
                                           onPressed: () {
                                             FocusScopeNode currentFocus =
                                                 FocusScope.of(context);
-                      
+
                                             if (!currentFocus.hasPrimaryFocus) {
                                               currentFocus.unfocus();
                                             }
@@ -757,7 +757,7 @@ class Form1State extends State<Form1> {
                                               null
                                           ? schoolController.getItemNameList!
                                               .map((value) {
-                      
+
                                               return DropdownMenuItem<String>(
                                                 value: value.toString(),
                                                 child: Text(value.toString()),
@@ -765,7 +765,7 @@ class Form1State extends State<Form1> {
                                             }).toList()
                                           : [], // Empty list if schoolController.getItemNameList is null
                                       onChanged: (String? v) {
-                                     
+
                                         FocusScope.of(context)
                                             .requestFocus(FocusNode());
                                         setState(() => _budgetHead = v);
@@ -863,22 +863,22 @@ class Form1State extends State<Form1> {
                                       elevation: 2,
                                       items: _staffController.staffList[0].data!
                                           .where((element) =>
-                                              element.location!.toLowerCase() ==
-                                                  _officeController.text
-                                                      .toLowerCase() ||
-                                              element.firstName!.toLowerCase() ==
-                                                  'sandeep' ||
-                                              element.firstName!.toLowerCase() ==
-                                                  'sujata')
+                                      element.location!.toLowerCase() == _officeController.text.toLowerCase() ||
+                                          element.firstName!.toLowerCase() == 'sujata' ||
+                                          element.firstName!.toLowerCase() == 'sandeep')
                                           .map((value) {
+                                        // Print each staff item that matches the conditions
+                                        print("Dropdown item: ${value.firstName!} ${value.lastName!}, Location: ${value.location}");
+
                                         return DropdownMenuItem<String>(
-                                          value:
-                                              "${value.firstName!} ${value.lastName!}",
-                                          child: Text(
-                                              '${value.firstName!} ${value.lastName!}'),
+                                          value: "${value.firstName!} ${value.lastName!}",
+                                          child: Text('${value.firstName!} ${value.lastName!}'),
                                         );
                                       }).toList(),
                                       onChanged: (dynamic v) {
+                                        // Print the selected value when the dropdown selection changes
+                                        print("Selected Expense By: $v");
+
                                         setState(() {
                                           _expenseBy = v;
                                         });
@@ -889,7 +889,8 @@ class Form1State extends State<Form1> {
                                               .copyWith(color: MyColors.grey_40)),
                                       iconDisabledColor: Colors.black,
                                     ),
-                                    onTap: () {},
+
+                                      onTap: () {},
                                   ),
                                 ),
                                 _validateExpenseBy
@@ -1017,7 +1018,7 @@ class Form1State extends State<Form1> {
                                       setState(() {
                                         FocusScopeNode currentFocus =
                                             FocusScope.of(context);
-                      
+
                                         if (!currentFocus.hasPrimaryFocus) {
                                           currentFocus.unfocus();
                                         }
@@ -1303,7 +1304,7 @@ class Form1State extends State<Form1> {
                                                 : (dynamic v) {
                                                     FocusScope.of(context)
                                                         .requestFocus(FocusNode());
-                      
+
                                                     setState(() {
                                                       if (_paymentType == 'Pending'
                                                           ? false
@@ -1324,7 +1325,7 @@ class Form1State extends State<Form1> {
                                           onTap: () {
                                             FocusScope.of(context)
                                                 .requestFocus(FocusNode());
-                      
+
                                             if (_paymentType == 'Pending'
                                                 ? false
                                                 : true) {
@@ -1458,7 +1459,7 @@ class Form1State extends State<Form1> {
                                         _officeController.text.isNotEmpty
                                             ? _validateoffice = false
                                             : _validateoffice = true;
-                      
+
                                         if (_paymentMode == 'Cheque') {
                                           _chequeController.text.isNotEmpty &&
                                                       _paymentMode == 'Cheque' ||
@@ -1482,7 +1483,7 @@ class Form1State extends State<Form1> {
                                         // _invoiceNoController.text.isNotEmpty
                                         //     ? _validateInvoiceNo = false
                                         //     : _validateInvoiceNo = true;
-                      
+
                                         _invoiceDateController.text.isNotEmpty
                                             ? _validateInvoiceDate = false
                                             : _validateInvoiceDate = true;
@@ -1514,11 +1515,11 @@ class Form1State extends State<Form1> {
                                                 _paymentType == 'Pending'
                                             ? _validatePaymentDate = false
                                             : _validatePaymentDate = true;
-                      
+
                                         _paidBy != null || _paymentType == 'Pending'
                                             ? _validatePaidBy = false
                                             : _validatePaidBy = true;
-                      
+
                                         _paidAmountController.text.isNotEmpty ||
                                                 _paymentType == 'Pending'
                                             ? _validatePaidAmount = false
@@ -1530,7 +1531,7 @@ class Form1State extends State<Form1> {
                                                 _paymentType == 'Pending'
                                             ? _validatePaymentMode = false
                                             : _validatePaymentMode = true;
-                      
+
                                         String invoiceAmount =
                                             _invoiceAmountController.text;
                                         String paidAmount =
@@ -1553,7 +1554,7 @@ class Form1State extends State<Form1> {
                                               ? _partialAmount = true
                                               : _partialAmount = false;
                                         }
-                      
+
                                         if (_settleAmount &&
                                             double.parse(
                                                     _invoiceAmountController.text) >
@@ -1568,9 +1569,9 @@ class Form1State extends State<Form1> {
                                                   onPressed: () async {
                                                     setState(() {
                                                       _settleAmount = false;
-                      
+
                                                     });
-                      
+
                                                     if (!_validateAmount &&
                                                         !_settleAmount &&
                                                         !_validateProject &&
@@ -1631,12 +1632,12 @@ class Form1State extends State<Form1> {
                                                             _bankController.text,
                                                             GetStorage()
                                                                 .read('userId')
-                      
+
                                                                 .toString(),
-                                                             _budgetHead.toString(),   
-                                                                
+                                                             _budgetHead.toString(),
+
                                                                 );
-                      
+
                                                         if (rsp['status']
                                                                 .toString() ==
                                                             '1') {
@@ -1672,7 +1673,7 @@ class Form1State extends State<Form1> {
                                                             _imageList = [];
                                                             tourValue = null;
                                                             _budgetHead = null;
-                      
+
                                                             _tourIdController
                                                                 .clear();
                                                             // _vendorNameController
@@ -1825,9 +1826,9 @@ class Form1State extends State<Form1> {
                                                           userId: GetStorage()
                                                               .read('userId')
                                                               .toString(),
-                      
+
                                                         );
-                      
+
                                                         await Controller()
                                                             .addData(
                                                                 contactInfoModel:
@@ -1843,7 +1844,7 @@ class Form1State extends State<Form1> {
                                                                     ));
                                                           } else {}
                                                         });
-                      
+
                                                         setState(() {
                                                           _submitDateController
                                                               .clear();
@@ -1852,7 +1853,7 @@ class Form1State extends State<Form1> {
                                                           _programme = null;
                                                           images64 = [];
                                                           _imageList = [];
-                      
+
                                                           _tourIdController.clear();
                                                           vendorName=null;
                                                           // _vendorNameController
@@ -1878,7 +1879,7 @@ class Form1State extends State<Form1> {
                                                               .clear();
                                                           _paymentType = null;
                                                           _paymentMode = null;
-                      
+
                                                           _officeController.clear();
                                                         });
                                                       }
@@ -1906,7 +1907,7 @@ class Form1State extends State<Form1> {
                                         if (networkManager.connectionType.value !=
                                             0) {
                                           //   try {
-                      
+
                                           isLoading.value = true;
                                           var rsp = await insertData(
                                               _officeController.text,
@@ -1953,11 +1954,11 @@ class Form1State extends State<Form1> {
                                                   images64![i]);
                                               if (imagesRes['status'].toString() ==
                                                   '1') {
-                                               
+
                                               } else if (imagesRes['status']
                                                       .toString() ==
                                                   '0') {
-                                               
+
                                               }
                                             }
                                             isLoading.value = false;
@@ -1974,7 +1975,7 @@ class Form1State extends State<Form1> {
                                               images64 = [];
                                               _imageList = [];
                                               vendorName = null;
-                      
+
                                               //_vendorNameController.clear();
                                               _invoiceNoController.clear();
                                               _invoiceDateController.clear();
@@ -2124,7 +2125,7 @@ Future insertData(
   print(referenceNo);
   print(userId);
   print(budgetHead);
-  
+
 
   var response =
       await http.post(Uri.parse('${MyColors.baseUrl}expense.php'), headers: {
@@ -2268,7 +2269,7 @@ class _Card1State extends State<Card1> {
                   : InteractiveViewer(
                       boundaryMargin: const EdgeInsets.all(5.0),
                       onInteractionEnd: (ScaleEndDetails endDetails) {
-                    
+
                         setState(() {
                           velocity = endDetails.velocity.toString();
                         });
